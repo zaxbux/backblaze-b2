@@ -1,0 +1,33 @@
+{
+	"_path": "/b2_authorize_account",
+	"success": {
+		"status": 200,
+		"data": {
+			"accountId": "000000000000",
+			"authorizationToken": "abcdefghijklmnopqrstuvwxyz01234",
+			"allowed": {},
+			"apiUrl": "https://api.backblazeb2.com",
+			"downloadUrl": "",
+			"recommendedPartSize": 10000,
+			"absoluteMinimumPartSize": 5000
+		}
+	},
+	"bucket_restriction": {
+		"status": 200,
+		"data": {
+			"accountId": "000000000000",
+			"authorizationToken": "abcdefghijklmnopqrstuvwxyz01234",
+			"allowed": {
+				"capabilities": [
+					"listFiles"
+				],
+				"bucketId": "12345",
+				"bucketName": "my_bucket"
+			},
+			"apiUrl": "https://api.backblazeb2.com",
+			"downloadUrl": "",
+			"recommendedPartSize": 10000,
+			"absoluteMinimumPartSize": 5000
+		}
+	}
+}
