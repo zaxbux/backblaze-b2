@@ -5,10 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run lint-all && npm run test-unit",
-    "test-unit": "mocha \"test/**/*Test.js\"",
-    "lint-lib": "eslint \"lib/**/*.js\" --parser-options=ecmaVersion:6 --global Promise",
-    "lint-test": "eslint \"test/**/*.js\" --parser-options=ecmaVersion:6 --global describe,it,beforeEach,Promise",
-    "lint-all": "npm run lint-lib && npm run lint-test"
+    "test-unit": "mocha -r esm \"test/**/*.js\"",
+    "lint-lib": "eslint \"lib/**/*.js\" --global Promise",
+    "lint-test": "eslint \"test/**/*.js\" --global describe,it,beforeEach,Promise",
+    "lint-all": "npm run lint-lib && npm run lint-test",
+    "build": "npm run-script clean && npx babel ./lib --out-dir ./dist",
+    "watch": "watch 'npm run-script build' ./lib",
+    "clean": "rm -rf ./dist && mkdir ./dist"
   },
   "keywords": [
     "backblaze",
@@ -29,14 +32,22 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "expect.js": "^0.3.1",
-    "mocha": "^7.0.1"
+    "@babel/cli": "^7.13",
+    "@babel/core": "^7.13",
+    "@babel/plugin-transform-modules-commonjs": "^7.13.8",
+    "chai": "^4.3.4",
+    "eslint": "^7.23.0",
+    "eslint-plugin-jsdoc": "^32.3.0",
+    "esm": "^3.2.25",
+    "mocha": "^8.3.2",
+    "nock": "^13.0.11"
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "axios-auth-refresh": "^3.1.0",
     "axios-retry": "^3.1.2",
-    "lodash": "^4.17.15"
+    "debug": "^2.6.9",
+    "lodash": "^4.17.21"
   },
   "engines": {
     "node": ">=10.0"
