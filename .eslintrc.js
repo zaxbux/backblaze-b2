@@ -33,9 +33,9 @@ module.exports = {
 		"jsdoc/match-description": 1,
 		"jsdoc/newline-after-description": 1, // Recommended
 		"jsdoc/no-bad-blocks": 1,
-		"jsdoc/no-defaults": 1,
+		//"jsdoc/no-defaults": 1,
 		//"jsdoc/no-types": 1,
-		"jsdoc/no-undefined-types": 1, // Recommended
+		//"jsdoc/no-undefined-types": 1, // Recommended
 		//"jsdoc/require-description": 1,
 		"jsdoc/require-description-complete-sentence": 1,
 		//"jsdoc/require-example": 1,
@@ -61,7 +61,8 @@ module.exports = {
 	},
 	"env": {
 		es6: true,
-		"node": true
+		"node": true,
+		"browser": true,
 	},
 	"parserOptions": {
 		"ecmaVersion": 2018,
