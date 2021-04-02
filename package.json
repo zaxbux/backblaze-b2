@@ -7,7 +7,7 @@
     "test": "npm run lint-all && npm run test-unit",
     "test-unit": "mocha -r esm \"test/**/*.js\"",
     "lint-lib": "eslint \"lib/**/*.js\" --global Promise",
-    "lint-test": "eslint \"test/**/*.js\" --global describe,it,beforeEach,Promise",
+    "lint-test": "eslint \"test/**/*.js\" --global describe,it,beforeEach,afterEach,Promise",
     "lint-all": "npm run lint-lib && npm run lint-test",
     "build": "npm run-script clean && npx babel ./lib --out-dir ./dist",
     "watch": "watch 'npm run-script build' ./lib",
