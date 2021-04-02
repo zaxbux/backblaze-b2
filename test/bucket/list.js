@@ -24,7 +24,7 @@ describe('B2 -> Bucket -> list()', function () {
 		this._nock = nock(`${API_URL}/b2api/${API_VERSION}`)
 			.get(nock_response._path);
 		
-		done()
+		done();
 	});
 
 	afterEach(function () {
