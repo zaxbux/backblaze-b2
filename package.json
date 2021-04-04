@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run lint-all && npm run test-unit",
-    "test-unit": "mocha -r esm \"test/**/*.js\"",
+    "test-unit": "mocha -r esm \"test/**/*.spec.js\"",
     "lint-lib": "eslint \"lib/**/*.js\" --global Promise",
     "lint-test": "eslint \"test/**/*.js\" --global describe,it,beforeEach,afterEach,Promise",
     "lint-all": "npm run lint-lib && npm run lint-test",
@@ -36,6 +36,7 @@
     "@babel/core": "^7.13",
     "@babel/plugin-transform-modules-commonjs": "^7.13.8",
     "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
     "eslint": "^7.23.0",
     "eslint-plugin-jsdoc": "^32.3.0",
     "esm": "^3.2.25",
@@ -44,12 +45,9 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "axios-auth-refresh": "^3.1.0",
-    "axios-retry": "^3.1.2",
-    "debug": "^2.6.9",
-    "lodash": "^4.17.21"
+    "debug": "^2.6.9"
   },
   "engines": {
-    "node": ">=10.0"
+    "node": ">=12.0"
   }
 }
