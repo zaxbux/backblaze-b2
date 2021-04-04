@@ -2,12 +2,16 @@
  * @file Contains tests for the B2 API SDK.
  */
 
-import { expect } from 'chai';
+import { use as chai_use, expect } from 'chai';
+import chaiAsPromised from 'chai-as-promised';
 import nock from 'nock';
 import B2 from '../../lib/b2';
 import { API_VERSION } from '../../lib/constants';
 import nock_response from './authorize.json';
 import { CAPABILITIES as KEY_CAPABILITIES } from '../../lib/actions/key';
+import { UnauthorizedError } from '../../lib/errors';
+
+chai_use(chaiAsPromised);
 
 describe('B2 -> authorize()', function () {
 	beforeEach(function () {
@@ -30,6 +34,16 @@ describe('B2 -> authorize()', function () {
 		const response = await this.b2.authorize();
 
 		expect(response.status).to.equal(200);
+	});
+	
+	it('should throw UnauthorizedError', async function() {
+		this._nock.reply(401, {
+			status: 401,
+			code: 'unauthorized',
+			message: '',
+		});
+
+		await expect(this.b2.authorize()).to.be.rejectedWith(UnauthorizedError);
 	});
 
 	it('should fetch an authorization token', async function () {

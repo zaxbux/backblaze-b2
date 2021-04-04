@@ -1,0 +1,41 @@
+{
+	"create": {
+		"accountId": "000123456789",
+		"bucketId": "12345",
+		"bucketName": "my_bucket",
+		"bucketType": "allPublic",
+		"bucketInfo": {},
+		"corsRules": {},
+		"lifecycleRules": {},
+		"defaultServerSideEncryption": {}
+	},
+	"update": {
+		"accountId": "000123456789",
+		"bucketId": "12345",
+		"bucketName": "my_bucket",
+		"bucketType": "allPrivate",
+		"bucketInfo": {},
+		"corsRules": {},
+		"lifecycleRules": {},
+		"defaultServerSideEncryption": {}
+	},
+	"list": {
+		"buckets": [
+			{
+				"accountId": "000123456789",
+				"bucketId": "12345",
+				"bucketName": "my_bucket",
+				"bucketType": "allPublic",
+				"bucketInfo": {},
+				"corsRules": {},
+				"lifecycleRules": {},
+				"revision": 1
+			}
+		]
+	},
+	"upload_url": {
+		"bucketId": "12345",
+		"uploadUrl": "https://pod-000-0000-00.backblaze.com/b2api/v2/b2_upload_file?cvt=c0_v0_t0&bucket=12345",
+		"authorizationToken": "abcdef"
+	}
+}

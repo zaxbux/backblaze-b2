@@ -1,0 +1,51 @@
+{
+	"create": {
+		"keyName": "",
+		"capabilities": [
+			"listKeys"
+		]
+	},
+	"list": {
+		"keys": [
+			{
+				"keyName": "",
+				"applicationKeyId": "",
+				"capabilities": [],
+				"accountId": ""
+			},
+			{
+				"keyName": "my_key",
+				"applicationKeyId": "000000000000bb00000000001",
+				"capabilities": [
+					"listKeys"
+				],
+				"accountId": "000000000000"
+			}
+		]
+	},
+	"listAll1": {
+		"keys": [
+			{
+				"keyName": "my_key",
+				"applicationKeyId": "000000000000bb00000000001",
+				"capabilities": [],
+				"accountId": "000000000000"
+			}
+		],
+		"nextApplicationKeyId": "000000000000bb00000000002"
+	},
+	"listAll2": {
+		"keys": [
+			{
+				"keyName": "my_key2",
+				"applicationKeyId": "000000000000bb00000000002",
+				"capabilities": [],
+				"accountId": "000000000000"
+			}
+		],
+		"nextApplicationKeyId": null
+	},
+	"delete": {
+		"accountId": "000000000000"
+	}
+}
