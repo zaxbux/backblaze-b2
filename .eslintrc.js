@@ -39,7 +39,7 @@ module.exports = {
 		//"jsdoc/require-description": 1,
 		"jsdoc/require-description-complete-sentence": 1,
 		//"jsdoc/require-example": 1,
-		"jsdoc/require-file-overview": 1,
+		//"jsdoc/require-file-overview": 1,
 		//"jsdoc/require-hyphen-before-param-description": 1,
 		"jsdoc/require-jsdoc": 1, // Recommended
 		"jsdoc/require-param": 1, // Recommended
