@@ -8,7 +8,7 @@ import nock from 'nock';
 import B2 from '../../lib/b2';
 import { API_VERSION } from '../../lib/constants';
 import nock_response from './authorize.json';
-import { CAPABILITIES as KEY_CAPABILITIES } from '../../lib/actions/key';
+import { CAPABILITIES as KEY_CAPABILITIES } from '../../lib/key';
 import { UnauthorizedError } from '../../lib/errors';
 
 chai_use(chaiAsPromised);

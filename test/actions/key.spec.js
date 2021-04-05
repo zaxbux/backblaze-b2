@@ -8,6 +8,7 @@ import nock from 'nock';
 import B2 from '../../lib/b2';
 import { API_BASE_URL, API_VERSION } from '../../lib/constants';
 import { InvalidArgumentError } from '../../lib/errors';
+import Key from '../../lib/key';
 import nock_responses from './key.json';
 
 chai_use(chaiAsPromised);
@@ -92,19 +93,19 @@ describe('actions/key', function () {
 			]
 		};
 	
-		it('should have an array of keys', async function () {
+		it('should have an array of Key objects', async function () {
 			_nock.post('/b2_list_keys').reply(200, nock_responses.list);
 
 			const response = await _b2.key.list(args);
 	
-			expect(response.data.keys).to.be.an('array').that.deep.includes({
-				keyName: 'my_key',
-				applicationKeyId: '000000000000bb00000000001',
-				capabilities: [
-					'listKeys'
-				],
-				accountId: '000000000000',
+			expect(response.data.keys).to.be.an('array');
+			
+			response.data.keys.forEach((v, i) => {
+				expect(v instanceof Key, `keys[${i}] is not of type 'Key'`);
 			});
+
+			expect(response.data.keys).to.be.an('array');
+			expect(response.data.keys[1].canListKeys()).to.equal(true);
 		});
 	});
 
@@ -116,17 +117,8 @@ describe('actions/key', function () {
 
 			const response = await _b2.key.listAll();
 	
-			expect(response).to.be.an('array').to.deep.include({
-				keyName: 'my_key',
-				applicationKeyId: '000000000000bb00000000001',
-				capabilities: [],
-				accountId: '000000000000',
-			}).and.to.deep.include({
-				keyName: 'my_key2',
-				applicationKeyId: '000000000000bb00000000002',
-				capabilities: [],
-				accountId: '000000000000',
-			});
+			expect(response).to.be.an('array').of.length(2);
+			expect(response[1].keyName).to.equal('my_key2');
 		});
 	});
 	
