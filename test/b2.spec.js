@@ -1,19 +1,15 @@
-/**
- * @file Contains tests for the B2 API SDK.
- */
-
 import { use as chai_use, expect } from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import nock from 'nock';
-import B2 from '../../lib/b2';
-import { API_VERSION } from '../../lib/constants';
-import nock_response from './authorize.json';
-import { CAPABILITIES as KEY_CAPABILITIES } from '../../lib/key';
-import { UnauthorizedError } from '../../lib/errors';
+import B2 from '../lib/b2';
+import { API_VERSION } from '../lib/constants';
+import nock_response from './fixtures//authorize.json';
+import { CAPABILITIES as KEY_CAPABILITIES } from '../lib/key';
+import { UnauthorizedError } from '../lib/errors';
 
 chai_use(chaiAsPromised);
 
-describe('B2 -> authorize()', function () {
+describe('authorize()', function () {
 	beforeEach(function () {
 		this.b2 = new B2({
 			applicationKeyId: '000000000000bb00000000000',

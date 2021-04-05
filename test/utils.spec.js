@@ -5,7 +5,7 @@
 import { expect } from 'chai';
 import { InvalidArgumentError, InvalidCredentialsError } from '../lib/errors';
 import { createSHA1Checksum, encodeB2String, getAccountAuthorizationHeader, getContentLength, isValidHeaderName, makeB2SSEHeaders, makeBzInfoHeaders } from '../lib/utils';
-import { string_encoding } from './utils.json';
+import { string_encoding } from './fixtures/utils.json';
 
 describe('utils/', function () {
 	describe('getAccountAuthorizationHeader()', function () {

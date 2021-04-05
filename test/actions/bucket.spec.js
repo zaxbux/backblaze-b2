@@ -1,14 +1,10 @@
-/**
- * @file Contains tests for bucket actions.
- */
-
 import { use as chai_use, expect } from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import nock from 'nock';
 import B2 from '../../lib/b2';
 import { API_BASE_URL, API_VERSION } from '../../lib/constants';
-import nock_responses from './bucket.json';
-import auth_responses from '../b2/authorize.json';
+import nock_responses from '../fixtures/bucket.json';
+import auth_responses from '../fixtures/authorize.json';
 import { DuplicateBucketNameError, InvalidArgumentError, TooManyBucketsError } from '../../lib/errors';
 
 chai_use(chaiAsPromised);

@@ -1,6 +1,7 @@
 {
 	"create": {
-		"keyName": "",
+		"keyName": "my_key",
+		"applicationKey": "xyz",
 		"capabilities": [
 			"listKeys"
 		]

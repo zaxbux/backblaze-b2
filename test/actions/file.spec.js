@@ -1,14 +1,10 @@
-/**
- * @file Contains tests for key actions.
- */
-
 import { use as chai_use, expect } from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import nock from 'nock';
 import B2 from '../../lib/b2';
 import { API_BASE_URL, API_VERSION } from '../../lib/constants';
 import { InvalidArgumentError } from '../../lib/errors';
-import nock_responses from './key.json';
+import nock_responses from '../fixtures/key.json';
 
 chai_use(chaiAsPromised);
 
