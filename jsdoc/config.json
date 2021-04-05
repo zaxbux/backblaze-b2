@@ -1,0 +1,17 @@
+{
+	"plugins": [
+		"plugins/markdown",
+		"./plugins/tag-b2TransactionClass.js"
+	],
+	"source": {
+		"include": [
+			"lib/"
+			],
+		"exclude": [],
+		"includePattern": ".+\\.js(doc|x)?$",
+		"excludePattern": "(^|\\/|\\\\)_"
+	},
+	"opts": {
+		"recurse": true
+	}
+}
