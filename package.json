@@ -2,7 +2,7 @@
   "name": "backblaze-b2",
   "version": "1.6.0",
   "description": "Node.js Library for the Backblaze B2 Storage Service",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "npm run lint-all && npm run test-unit",
     "test-unit": "mocha -r esm \"test/**/*.spec.js\"",
