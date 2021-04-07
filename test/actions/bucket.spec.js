@@ -5,7 +5,7 @@ import B2 from '../../lib/b2';
 import { API_BASE_URL, API_VERSION } from '../../lib/constants';
 import nock_responses from '../fixtures/bucket.json';
 import auth_responses from '../fixtures/authorize.json';
-import { DuplicateBucketNameError, InvalidArgumentError, TooManyBucketsError } from '../../lib/errors';
+import { BucketNotFoundError, DuplicateBucketNameError, InvalidArgumentError, TooManyBucketsError } from '../../lib/errors';
 
 chai_use(chaiAsPromised);
 
@@ -59,12 +59,9 @@ describe('actions/bucket', function () {
 			bucketType: 'allPublic',
 		};
 
-		it('should throw an InvalidArgumentError when called without bucketName or bucketType', async function() {
+		it('should throw an InvalidArgumentError when called without bucketName', async function() {
 			await expect(_b2.bucket.create()).to.be.rejectedWith(InvalidArgumentError, 'The `bucketName` parameter is required');
 			await expect(_b2.bucket.create({})).to.be.rejectedWith(InvalidArgumentError, 'The `bucketName` parameter is required');
-			await expect(_b2.bucket.create({
-				bucketName: 'my_bucket',
-			})).to.be.rejectedWith(InvalidArgumentError, 'The `bucketType` parameter is required');
 		});
 
 		it('should receive the ID of the new bucket', async function () {
@@ -171,16 +168,12 @@ describe('actions/bucket', function () {
 			expect(response.bucketId).to.equal('12345');
 		});
 
-		it('should return null on non-existent bucket', async function () {
+		it('should throw BucketNotFoundError on non-existent bucket', async function () {
 			_nock.post('/b2_list_buckets').reply(200, {
 				buckets: [],
 			});
 
-			const response = await _b2.bucket.get({
-				bucketName: 'not_found',
-			});
-
-			expect(response).is.equal(null);
+			await expect(_b2.bucket.get({bucketName: 'not_found',})).to.be.rejectedWith(BucketNotFoundError, 'The bucket \'not_found\' does not exist');
 		});
 	});
 
